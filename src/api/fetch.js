@@ -1,13 +1,12 @@
-// utils
-import { getAPIUrl } from '../utils/api'
+import { getAPIUrl } from '../utils/url'
 
 class Fetch {
   constructor() {
-    ;(this.PREFIX = `${getAPIUrl()}`),
-      (this.DEFAULT_HEADERS = {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      })
+    this.PREFIX = `${getAPIUrl()}`
+    this.DEFAULT_HEADERS = {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    }
   }
 
   async http({ path, extraHeaders = {}, body = null, ...requestOptions }) {

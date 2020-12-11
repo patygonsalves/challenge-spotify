@@ -1,5 +1,10 @@
 const path = require('path');
+const webpack = require("webpack");
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+
+const dotenv = require('dotenv').config({
+  path: path.join(__dirname, '.env')
+})
 
 module.exports = {
   entry: './src/index.js',
@@ -17,7 +22,10 @@ module.exports = {
         'viewport': 'width=device-width, initial-scale=1, shrink-to-fit=no',
         'theme-color': '#1DB954'
       }
-    })
+    }),
+    new webpack.DefinePlugin({
+      "process.env": dotenv.parsed,
+    }),
   ],
   module:{
     rules:[
@@ -38,7 +46,17 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env','@babel/preset-react']
+            presets: [
+              [
+                '@babel/preset-env',
+                {
+                  targets: {
+                    esmodules: true
+                  }
+                }
+              ],
+              '@babel/preset-react'
+            ]
           }
         }
       },

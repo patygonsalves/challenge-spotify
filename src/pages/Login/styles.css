@@ -1,0 +1,48 @@
+
+
+.mainX-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #eceef0;
+}
+
+.mainX-content {
+  padding: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.11);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mainX-image {
+  margin: 20px;
+}
+
+.mainX-title {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.mainX-description {
+  font-size: 20px;
+}
+
+.mainX-box-button {
+  margin: 20px 0;
+}
+
+.mainX-button {
+  background: #999999;
+  color: #fff;
+  padding: 6px 16px;
+  line-height: 1.75;
+  border-radius: 4px;
+  border: 1px solid #999999;
+}
+
+.mainX-button:hover {
+  box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12);
+}
