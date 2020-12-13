@@ -2,11 +2,11 @@ import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 // container
-import withAuth from './containers/Auth/withAuth'
+import PrivateRoute from './containers/Auth/withAuth'
 
 // pages
-import LoginPage from './pages/Login'
-import MainPage from './pages/Main'
+import LoginPage from './containers/Login'
+import MainPage from './containers/Main'
 import NotFoundPage from './pages/404'
 
 // styles
@@ -17,9 +17,9 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path='/' component={LoginPage} />
-        <Route exact path='/main' component={MainPage} />
+        <PrivateRoute exact path='/main' component={MainPage} />
         <Route component={NotFoundPage} />
-      </Switch>
+      </Switch> 
     </BrowserRouter>
   )
 }

@@ -22,6 +22,7 @@ body {
 body {
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
+  margin: 0px;
 }
 
 body,

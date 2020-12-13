@@ -1,4 +1,4 @@
-import { getAPIUrl } from '../utils/url'
+import { getAPIUrl } from '../utils/api'
 
 class Fetch {
   constructor() {

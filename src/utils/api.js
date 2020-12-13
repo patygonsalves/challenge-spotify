@@ -6,8 +6,9 @@ function getRedirectAPI() {
   return 'http://localhost:8080'
 }
 
-function getSpotifyWebAPI() {
-  return `https://accounts.spotify.com/authorize/?client_id=${process.env.CLIENT_ID}&response_type=token&redirect_uri=${process.env.REDIRECT_URI}`
+function getSpotifyWebLoginAPI() {
+  return `https://accounts.spotify.com/authorize/?client_id=${process.env.CLIENT_ID}&response_type=token&redirect_uri=http://localhost:8080/`
 }
 
-export { getAPIUrl, getRedirectAPI, getSpotifyWebAPI }
+
+export { getAPIUrl, getRedirectAPI, getSpotifyWebLoginAPI }

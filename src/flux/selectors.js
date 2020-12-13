@@ -1,7 +1,12 @@
-import { initialState } from '../reducers/auth'
+import { initialStateAuth } from '../reducers/auth'
+import { initialStateSearch } from '../reducers/search'
 
-const domain = state => state.auth || initialState
+const domainAuth = state => state.auth || initialStateAuth
 
-const selectAuth = state => domain(state)
+const domainSearch = state => state.search || initialStateSearch
 
-export { selectAuth }
+const selectAuth = state => domainAuth(state)
+
+const selectSearch = state => domainSearch(state).search
+
+export { selectAuth, selectSearch }

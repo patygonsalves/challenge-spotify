@@ -1,0 +1,21 @@
+
+.inputX-field {
+  display: flex;
+  border-bottom: 2px solid #999999;
+}
+
+.inputX-input {
+  font-size: 24px;
+  line-height: 20px;
+  padding: 5px;
+  width: 100%;
+  appearance: none;
+  border-width: 0px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.01);
+  color: #fff;
+}
+
+.inputX-input::placeholder {
+  color: #999999;
+}

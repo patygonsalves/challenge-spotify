@@ -2,15 +2,16 @@ const path = require('path');
 const webpack = require("webpack");
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
-const dotenv = require('dotenv').config({
+const dotenv = require('dotenv').config( {
   path: path.join(__dirname, '.env')
-})
+} );
 
 module.exports = {
-  entry: './src/index.js',
+  entry: ['@babel/polyfill', './src/index.js'],
   output: {
-    filename: 'main.js',
+    filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/'
   },
   plugins:[
     new HtmlWebPackPlugin({
@@ -24,7 +25,9 @@ module.exports = {
       }
     }),
     new webpack.DefinePlugin({
-      "process.env": dotenv.parsed,
+      'process.env': {
+        'CLIENT_ID': JSON.stringify(dotenv.parsed.CLIENT_ID),
+      }
     }),
   ],
   module:{
@@ -65,5 +68,9 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       }
     ]
+  },
+  devServer: {
+    historyApiFallback: true,
+    contentBase: './dist'
   }
 };

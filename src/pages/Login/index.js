@@ -1,17 +1,10 @@
 import React, { useEffect } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { createStructuredSelector } from 'reselect'
-import { compose, bindActionCreators } from 'redux'
-
+import { useHistory } from 'react-router-dom'
+// icon
 import SpotifyIcon from '../../components/Icons/Spotify'
 
-// auth
-import { selectAuth } from '../../flux/selectors'
-import authActionsCreators from '../../actions/auth'
-
 // url
-import { getSpotifyWebLoginAPI } from '../../utils/url'
+import { getSpotifyWebLoginAPI } from '../../utils/api'
 
 import './styles.css'
 
@@ -19,19 +12,28 @@ function Login({
   auth,
   authActions,
 }) {
+  const history = useHistory()
 
   useEffect(() => {
+    const { token } = auth
     const { href } = window.location
+  
+    if (token) return redirect()
 
     if (href.indexOf('token') !== -1) {
       const token = href.match(/\#(?:access_token)\=([\S\s]*?)\&/)[1]
       authActions.login({ token })
+      redirect()
     }
   }, [])
 
   const handleLogin = e => {
     e.preventDefault()
     window.location.assign(getSpotifyWebLoginAPI())
+  }
+
+  const redirect = () => {
+    history.push('/main')
   }
 
   return (
@@ -50,29 +52,4 @@ function Login({
   )
 }
 
-Login.propTypes = {
-  auth: PropTypes.object.isRequired,
-  authActions: PropTypes.object.isRequired,
-}
-
-const mapStateToProps = createStructuredSelector({
-  // auth
-  auth: selectAuth,
-})
-
-function mapDispatchToProps(dispatch) {
-  return {
-    authActions: {
-      ...bindActionCreators(authActionsCreators.auth, dispatch),
-    },
-  }
-}
-
-const withConnect = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)
-
-export default compose(
-  withConnect,
-)(Login)
+export default Login
