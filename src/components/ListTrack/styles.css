@@ -1,0 +1,19 @@
+
+.listTrackX-container {
+  align-items: center;
+  flex-direction: row;
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.listTrackX-text {
+  font-size: 14px;
+  color: #999999;
+}
+
+.listTrackX-description {
+  font-size: 16px;
+  color: #fafafa;
+  margin-left: 20px;
+  min-width: 420px;
+}

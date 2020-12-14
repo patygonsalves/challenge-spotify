@@ -10,6 +10,16 @@ class Endpoints {
       },
     })
   }
+
+  static getAlbum({ id, token }) {
+    return new Fetch().http({
+      path: `/albums/${id}/tracks`,
+      method: 'GET',
+      extraHeaders: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+  }
 }
 
 export default Endpoints

@@ -1,0 +1,50 @@
+
+.albumX-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vw;
+  background-color: rgba(0, 0, 0, 0.88);
+}
+
+.albumX-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.albumX-main {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.albumX-title {
+  font-size: 16px;
+  color: #fafafa;
+  padding: 10px 0px;
+}
+
+.albumX-description {
+  font-size: 14px;
+  color: #999999;
+}
+
+.albumX-button {
+  border: none;
+  border-radius: 15px;
+  width: 60px;
+  height: 30px;
+  background: #000;
+  color: #999999;
+  line-height: 1.75;
+  font-size: 12px;
+}
+
+.albumX-content-button {
+  margin: 30px 0px 30px 110px;
+  display: flex;
+  flex-direction: row;
+  align-self: flex-start;
+}

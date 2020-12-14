@@ -10,6 +10,7 @@ const normalizeAlbums = (albums) => {
       title: album.name,
       description: album.artists[0].name,
       image: isNotEmpty(album.images) ? album.images[0].url : null,
+      type: 'album',
     }
   })
 }
@@ -22,6 +23,7 @@ const normalizeArtists = (artists) => {
       title: artist.name,
       description: '',
       image: isNotEmpty(artist.images) ? artist.images[0].url : null,
+      type: 'artist',
     }
   })
 }
@@ -35,6 +37,7 @@ const normalizeTracks = (tracks) => {
       title: album.name,
       description: album.artists[0].name,
       image: isNotEmpty(album.images) ? album.images[0].url : null,
+      type: 'album',
     }
   })
 }

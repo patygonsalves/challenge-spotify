@@ -11,4 +11,6 @@ const selectSearchAlbums = state => domainSearch(state).albums
 
 const selectSearchArtists = state => domainSearch(state).artists
 
-export { selectAuth, selectSearchAlbums, selectSearchArtists }
+const selectSearchTracks = state => domainSearch(state).tracks
+
+export { selectAuth, selectSearchAlbums, selectSearchArtists, selectSearchTracks }

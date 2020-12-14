@@ -7,6 +7,7 @@ import PrivateRoute from './containers/Auth/withAuth'
 // pages
 import LoginPage from './containers/Login'
 import MainPage from './containers/Main'
+import AlbumPage from './containers/Album'
 import NotFoundPage from './pages/404'
 
 // styles
@@ -17,7 +18,8 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path='/' component={LoginPage} />
-        <PrivateRoute exact path='/main' component={MainPage} />
+        <PrivateRoute exact path='/search' component={MainPage} />
+        <PrivateRoute exact path='/search/:uuid/album/:id' component={AlbumPage} />
         <Route component={NotFoundPage} />
       </Switch> 
     </BrowserRouter>

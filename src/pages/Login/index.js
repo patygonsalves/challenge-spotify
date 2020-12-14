@@ -33,7 +33,7 @@ function Login({
   }
 
   const redirect = () => {
-    history.push('/main')
+    history.push('/search')
   }
 
   return (

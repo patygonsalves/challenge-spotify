@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
 
 // icon
 import SpotifyIcon from '../../components/Icons/Spotify'
@@ -15,6 +16,8 @@ import './styles.css'
 function Main({ searchAlbums, searchArtists, searchActions }) {
   const [searchInput, setSearchInput] = useState('')
   const searchDebounce = useDebounce(searchInput, 500)
+
+  const history = useHistory()
 
   useEffect(() => {
 
@@ -44,6 +47,16 @@ function Main({ searchAlbums, searchArtists, searchActions }) {
     return !!searchDebounce && `Resultados encontrados para "${searchInput}"`
   }
 
+  const getTracks = (type, id, uuid) => {
+    if (type !== 'album') return
+
+    searchActions.getAlbum({
+      id
+    })
+
+    return history.push(`/search/${uuid}/album/${id}`)
+  }
+
   const renderResultSearch = (search) => {
     return search.map(s => 
       <List
@@ -51,6 +64,7 @@ function Main({ searchAlbums, searchArtists, searchActions }) {
         title={s.title}
         description={s.description}
         image={s.image}
+        onClick={() => getTracks(s.type, s.id, s.uuid)}
       />
     )
   }

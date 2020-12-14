@@ -7,8 +7,9 @@ const ListItem = ({
   title,
   description,
   image,
+  onClick,
 }) => (
-  <li>
+  <li onClick={onClick}>
     <div className="listX-content">
       {image && <img src={image} alt={`Image by ${title}`} width={145} height={145} />}
       <span className='listX-title'>{title}</span>
@@ -21,6 +22,7 @@ ListItem.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
+  onClick: PropTypes.func,
 }
 
 export default ListItem
