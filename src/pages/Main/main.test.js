@@ -12,8 +12,8 @@ describe('<Main />', () => {
     const { container } = render(
       renderWithRedux(
         <Main
-          searchAlbums={{}}
-          searchArtists={{}}
+          searchAlbums={[]}
+          searchArtists={[]}
           searchActions={{}}
         />
       )
