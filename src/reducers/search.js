@@ -1,7 +1,8 @@
 import { updateLocalStorage } from '../utils/localstorage'
 
 const baseState = {
-  search: [],
+  albums: [],
+  artists: [],
 }
 
 const recoveredState = JSON.parse(localStorage.getItem('spotify-search'))
@@ -11,7 +12,8 @@ export const initialState = recoveredState || baseState
 function set(state, payload) {
   const newState = {
     ...state,
-    search: payload,
+    albums: payload.albums,
+    artists: payload.artists,
   }
 
   updateLocalStorage('spotify-search', JSON.stringify(newState))

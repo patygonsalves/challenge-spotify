@@ -7,6 +7,8 @@ const domainSearch = state => state.search || initialStateSearch
 
 const selectAuth = state => domainAuth(state)
 
-const selectSearch = state => domainSearch(state).search
+const selectSearchAlbums = state => domainSearch(state).albums
 
-export { selectAuth, selectSearch }
+const selectSearchArtists = state => domainSearch(state).artists
+
+export { selectAuth, selectSearchAlbums, selectSearchArtists }

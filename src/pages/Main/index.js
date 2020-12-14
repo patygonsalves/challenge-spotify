@@ -12,7 +12,7 @@ import List from '../../components/List'
 
 import './styles.css'
 
-function Main({ search, searchActions }) {
+function Main({ searchAlbums, searchArtists, searchActions }) {
   const [searchInput, setSearchInput] = useState('')
   const searchDebounce = useDebounce(searchInput, 500)
 
@@ -41,13 +41,13 @@ function Main({ search, searchActions }) {
   )
 
   const renderTitle = () => {
-    return !!searchDebounce ? `Resultados encontrados para "${searchInput}"` : 'Álbuns buscados recentemente'
+    return !!searchDebounce && `Resultados encontrados para "${searchInput}"`
   }
 
-  const renderResultSearch = () => {
+  const renderResultSearch = (search) => {
     return search.map(s => 
       <List
-        key={s.id}
+        key={s.uuid}
         title={s.title}
         description={s.description}
         image={s.image}
@@ -67,9 +67,16 @@ function Main({ search, searchActions }) {
           </div>
           <div className='containerX-result'>
             <p className='containerX-title'>{renderTitle()}</p>
-            <div className='containerX-result-content'>
-              {!!search.length && <ul className='containerX-list'>{renderResultSearch()}</ul>}
-            </div>
+
+            {!searchInput && <p className='containerX-title'>{'Álbuns buscados recentemente'}</p>}
+            {!!searchAlbums.length && <div className='containerX-result-content'>
+              <ul className='containerX-list'>{renderResultSearch(searchAlbums)}</ul>
+            </div>}
+
+            {!searchInput && <p className='containerX-title'>{'Artistas buscados recentemente'}</p>}
+            {!!searchArtists.length && <div className='containerX-result-content'>
+              <ul className='containerX-list'>{renderResultSearch(searchArtists)}</ul>
+            </div>}
           </div>
         </div>
       </main>

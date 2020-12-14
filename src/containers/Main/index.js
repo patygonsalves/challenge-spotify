@@ -8,27 +8,34 @@ import { compose, bindActionCreators } from 'redux'
 import MainPage from '../../pages/Main'
 
 // search
-import { selectSearch } from '../../flux/selectors'
+import { selectSearchAlbums, selectSearchArtists } from '../../flux/selectors'
 import searchActionsCreators from '../../actions/search'
 
 
 function Main({
-  search,
+  searchAlbums,
+  searchArtists,
   searchActions,
 }) {
   return (
-    <MainPage search={search} searchActions={searchActions} /> 
+    <MainPage
+      searchAlbums={searchAlbums}
+      searchArtists={searchArtists}
+      searchActions={searchActions}
+    /> 
   )
 }
 
 Main.propTypes = {
-  search: PropTypes.array.isRequired,
+  searchAlbums: PropTypes.array.isRequired,
+  searchArtists: PropTypes.array.isRequired,
   searchActions: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = createStructuredSelector({
   // search
-  search: selectSearch,
+  searchAlbums: selectSearchAlbums,
+  searchArtists: selectSearchArtists,
 })
 
 function mapDispatchToProps(dispatch) {

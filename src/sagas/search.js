@@ -7,7 +7,7 @@ import Endpoints from '../api'
 import { selectAuth } from '../flux/selectors'
 
 // utils
-import { normalizeAlbums, normalizeArtists, normalizeTracks } from '../utils/normalized'
+import { normalizeAlbums, normalizeArtists, normalizeTracks, normalizedDuplicates } from '../utils/normalized'
 
 function* getSearch({ payload : { q, type }}) {
 
@@ -26,11 +26,13 @@ function* getSearch({ payload : { q, type }}) {
 
     yield put({
       type: 'SEARCH/GET/INTENT',
-      payload: [
-        normalizeAlbums(albums.items),
-        normalizeArtists(artists.items),
-        normalizeTracks(tracks.items),
-      ].flat()
+      payload: {
+        albums: normalizedDuplicates([
+          normalizeAlbums(albums.items),
+          normalizeTracks(tracks.items),
+        ].flat()),
+        artists: normalizeArtists(artists.items),
+      }
     })
   } catch (e) {
     return yield put({ type: 'AUTH/LOGOUT' })
