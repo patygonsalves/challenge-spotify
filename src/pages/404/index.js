@@ -1,7 +1,9 @@
 import React from 'react'
 
+import './styles.css'
+
 function NotFound() {
-  return <div>NotFound</div>
+  return <main className="notfoundX-404">Ops, parece que esta página não foi encontrada!</main>
 }
 
 export default NotFound

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PageNotFound /> should render PageNotFound 1`] = `
+<main
+  class="notfoundX-404"
+>
+  Ops, parece que esta página não foi encontrada!
+</main>
+`;
