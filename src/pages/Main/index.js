@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { useHistory } from 'react-router-dom'
 
 // icon
@@ -96,6 +97,12 @@ function Main({ searchAlbums, searchArtists, searchActions }) {
       </main>
     </div>
   )
+}
+
+Main.propTypes = {
+  searchAlbums: PropTypes.array.isRequired,
+  searchArtists: PropTypes.array.isRequired,
+  searchActions: PropTypes.object.isRequired,
 }
 
 export default Main

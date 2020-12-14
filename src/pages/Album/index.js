@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { useLocation, useHistory } from 'react-router-dom'
 
 // components
@@ -57,6 +58,11 @@ function AlbumPage({
       </main>
     </main>
   )
+}
+
+AlbumPage.propTypes = {
+  searchAlbums: PropTypes.array,
+  tracks: PropTypes.array,
 }
 
 export default AlbumPage

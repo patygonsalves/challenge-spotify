@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { useHistory } from 'react-router-dom'
 // icon
 import SpotifyIcon from '../../components/Icons/Spotify'
@@ -50,6 +51,11 @@ function Login({
       </div>
     </main>
   )
+}
+
+Login.propTypes = {
+  auth: PropTypes.object.isRequired,
+  authActions: PropTypes.object.isRequired,
 }
 
 export default Login
