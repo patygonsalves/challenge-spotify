@@ -1,17 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<List /> should render SearchField 1`] = `
-<li
-  class="listX-container"
->
+<li>
   <div
     class="listX-content"
   >
     <img
       alt="Image by Taylor Swift"
-      height="128"
+      height="145"
       src="http://imagetaylor"
-      width="128"
+      width="145"
     />
     <span
       class="listX-title"
