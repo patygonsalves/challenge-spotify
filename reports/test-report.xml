@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unitTest version="1">
+    <file path="/Users/patriciagonsalves/Documents/challenge-spotify/src/components/Search/search.test.js">
+        <testCase name="&lt;SearchField /&gt; should render SearchField" duration="204"/>
+        <testCase name="&lt;SearchField /&gt; calls change handler for an input" duration="367"/>
+    </file>
+    <file path="/Users/patriciagonsalves/Documents/challenge-spotify/src/pages/Main/main.test.js">
+        <testCase name="&lt;Main /&gt; should render Main" duration="176"/>
+    </file>
+    <file path="/Users/patriciagonsalves/Documents/challenge-spotify/src/pages/Login/login.test.js">
+        <testCase name="&lt;Login /&gt; should render Login" duration="373"/>
+    </file>
+    <file path="/Users/patriciagonsalves/Documents/challenge-spotify/src/components/List/list.test.js">
+        <testCase name="&lt;List /&gt; should render SearchField" duration="34"/>
+    </file>
+    <file path="/Users/patriciagonsalves/Documents/challenge-spotify/src/components/ListTrack/listTrack.test.js">
+        <testCase name="&lt;ListTrack /&gt; should render SearchField" duration="33"/>
+    </file>
+    <file path="/Users/patriciagonsalves/Documents/challenge-spotify/src/pages/404/404.test.js">
+        <testCase name="&lt;PageNotFound /&gt; should render PageNotFound" duration="18"/>
+    </file>
+    <file path="/Users/patriciagonsalves/Documents/challenge-spotify/src/components/Icons/spotify.test.js">
+        <testCase name="&lt;SpotifyIcon /&gt; should render SpotifyIcon" duration="77"/>
+    </file>
+</unitTest>
